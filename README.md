@@ -1,8 +1,18 @@
-# React + Vite
+# Vite React Project with Chart.js, Bootstrap, React-Router, Toastify, and EmailJS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates how to build a React application using Vite, integrating the following libraries:
 
-Currently, two official plugins are available:
+- **Chart.js** for displaying charts
+- **React-Chart.js-2** for React wrapper around Chart.js
+- **React-Router** for routing with HashRouter
+- **Bootstrap** for responsive design
+- **React-Toastify** for toast notifications
+- **EmailJS** for sending emails (e.g., sending OTP)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Preview Link:
+https://dashboard-nishanth.web.app
+
+## Login Page 
+![image](https://github.com/user-attachments/assets/a7bb6cc1-129f-46be-90f9-b7a4242713f3)
+
+
