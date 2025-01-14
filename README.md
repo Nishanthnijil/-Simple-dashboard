@@ -1,4 +1,4 @@
-# Vite React Project with Chart.js, Bootstrap, React-Router, Toastify, and EmailJS
+# Simple Dashboard site using Chart.js, Bootstrap, React-Router, Toastify, and EmailJS
 
 This project demonstrates how to build a React application using Vite, integrating the following libraries:
 
