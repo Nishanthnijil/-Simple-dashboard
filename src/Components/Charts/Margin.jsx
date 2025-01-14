@@ -79,7 +79,6 @@ const Margin = () => {
   return (
     <div
       style={{
-        // background: "rgba(255, 255, 0, 0.2)",
         background: "rgba(45, 45, 45, 0.5)",
         color: "white",
         padding: "20px",
@@ -101,7 +100,6 @@ const Margin = () => {
               borderRadius: "5px",
               color: "#FFF",
               padding: "5px",
-              
               cursor: "pointer",
             }}
             value={timeRange}
