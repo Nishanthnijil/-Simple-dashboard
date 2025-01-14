@@ -7,14 +7,13 @@ ChartJS.register(LineElement, PointElement, Tooltip, Legend, Title, CategoryScal
 const InventoryChart = () => {
   const [timeRange, setTimeRange] = useState("days");
 
-  // Data for different time ranges (7 days, 7 weeks, 7 months)
   const data = {
     days: {
       labels: Array.from({ length: 7 }, (_, index) => `Day ${index + 1}`),
       datasets: [
         {
           label: "Inventory",
-          data: [50, 55, 45, 60, 70, 65, 75], // Data for 7 days
+          data: [50, 55, 45, 60, 70, 65, 75],
           borderColor: "#28a745",
           backgroundColor: "rgba(40, 167, 69, 0.2)",
           fill: true,
@@ -27,7 +26,7 @@ const InventoryChart = () => {
       datasets: [
         {
           label: "Inventory",
-          data: [300, 320, 310, 350, 380, 400, 420], // Data for 7 weeks
+          data: [300, 320, 310, 350, 380, 400, 420],
           borderColor: "#28a745",
           backgroundColor: "rgba(40, 167, 69, 0.2)",
           fill: true,
@@ -40,7 +39,7 @@ const InventoryChart = () => {
       datasets: [
         {
           label: "Inventory",
-          data: [1200, 1250, 1300, 1350, 1400, 1450, 1500], // Data for 7 months
+          data: [1200, 1250, 1300, 1350, 1400, 1450, 1500],
           borderColor: "#28a745",
           backgroundColor: "rgba(40, 167, 69, 0.2)",
           fill: true,
@@ -62,26 +61,26 @@ const InventoryChart = () => {
         },
       },
       legend: {
-        display: false, // Hide the default legend
+        display: false,
       },
       title: {
-        display: false, // Hide the title
+        display: false,
       },
     },
     elements: {
       point: {
-        radius: 0, // Hide data points
+        radius: 0,
       },
     },
     scales: {
       x: {
         ticks: {
-          display: false, // Hide x-axis labels
+          display: false,
         },
       },
       y: {
         ticks: {
-          display: false, // Hide y-axis labels
+          display: false,
         },
       },
     },
@@ -93,13 +92,11 @@ const InventoryChart = () => {
 
   return (
     <div
-    style={{
-      // width: "75%",
-        // height: "70%",
+      style={{
         width: "350px",
         height: "213px",
-        padding:"50px",
-        paddingTop: "40px", // Correct camelCase syntax
+        padding: "50px",
+        paddingTop: "40px",
         background: "rgba(45, 45, 45, 0.5)",
         borderRadius: "15px",
         display: "flex",
@@ -109,14 +106,13 @@ const InventoryChart = () => {
         color: "#fff",
       }}
     >
-      {/* "Inventory" label at top left */}
       <div
         style={{
           position: "absolute",
           top: "10px",
           left: "10px",
-          color: "#FFFFFFCC", 
-          fontSize: "14px", 
+          color: "#FFFFFFCC",
+          fontSize: "14px",
           paddingTop: "10px",
           paddingLeft: "40px",
         }}
@@ -124,7 +120,6 @@ const InventoryChart = () => {
         Inventory
       </div>
 
-      {/* Dropdown to select time range at top right */}
       <div
         style={{
           position: "absolute",
@@ -138,12 +133,11 @@ const InventoryChart = () => {
         <select
           style={{
             background: "none",
-            border: "none", // black border
+            border: "none",
             fontSize: "14px",
             cursor: "pointer",
-            color: "#FFFFFFCC", 
-            
-            lineHeight: "34px"
+            color: "#FFFFFFCC",
+            lineHeight: "34px",
           }}
           value={timeRange}
           onChange={handleTimeRangeChange}
@@ -153,9 +147,8 @@ const InventoryChart = () => {
           <option value="months">7 Months</option>
         </select>
       </div>
-      <div style={{height: "100px"}}> </div>
+      <div style={{ height: "100px" }}></div>
 
-      {/* Line Chart */}
       <div style={{ position: "relative", width: "100%", height: "200px", paddingTop: "15px" }}>
         <Line data={data[timeRange]} options={options} />
       </div>
