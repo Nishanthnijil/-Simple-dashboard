@@ -9,17 +9,17 @@ const BatteryStatus = () => {
     labels: ["Remaining", "Consumed"],
     datasets: [
       {
-        data: [65, 35], // Values for remaining and consumed battery
-        backgroundColor: ["#007BFF", "#FFBE0A"], // Blue for remaining, yellow for consumed
-        hoverBackgroundColor: ["#0056b3", "#d79c09"], // Darker shades on hover
-        hoverOffset: 10, // Offset when hovering over segments
+        data: [65, 35],
+        backgroundColor: ["#007BFF", "#FFBE0A"],
+        hoverBackgroundColor: ["#0056b3", "#d79c09"],
+        hoverOffset: 10,
         borderWidth: 0,
       },
     ],
   };
 
   const options = {
-    cutout: "70%", // Adjust the doughnut hole size
+    cutout: "70%",
     plugins: {
       tooltip: {
         enabled: true,
@@ -30,7 +30,7 @@ const BatteryStatus = () => {
         },
       },
       legend: {
-        display: false, // Hide the default legend
+        display: false,
       },
     },
   };
@@ -48,51 +48,36 @@ const BatteryStatus = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        // justifyContent: "space-between",
         position: "relative",
         color: "#fff",
         background: "rgba(45, 45, 45, 0.5)",
       }}
     >
-      {/* Top-right: Dummy button */}
-      <div className="row" style={{width: "100%", height: "25%"}}>
+      <div className="row" style={{ width: "100%", height: "25%" }}>
         <div className="col pt-3">
-          {/* Top Section */}
-          <div
-            style={{
-              width: "100%"
-            }}
-          >
-            {/* Top-left: Battery title */}
+          <div style={{ width: "100%" }}>
             <span style={{ color: "#FFFFFFCC", fontSize: "14px", lineHeight: "1px" }}>Battery</span>
-
-            
           </div>
         </div>
         <div className="col-2">
-        <button
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            color: "#FFFFFFCC", 
-            fontSize: "25px",
-            padding: "0%"
-            // lineHeight: "1px"
-          }}
-          onClick={() => alert("Dummy button clicked!")}
-        >
-          <span>...</span>
-        </button>
+          <button
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "#FFFFFFCC",
+              fontSize: "25px",
+              padding: "0%",
+            }}
+            onClick={() => alert("Dummy button clicked!")}
+          >
+            <span>...</span>
+          </button>
         </div>
       </div>
 
-      {/* Doughnut Chart */}
-      <div style={{ position: "relative", width: "100%", height: "50%", display: "flex",
-          justifyContent: "center" 
-          }}>
+      <div style={{ position: "relative", width: "100%", height: "50%", display: "flex", justifyContent: "center" }}>
         <Doughnut data={data} options={options} />
-        {/* Percentage detail inside the doughnut */}
         <div
           style={{
             position: "absolute",
@@ -101,25 +86,22 @@ const BatteryStatus = () => {
             transform: "translate(-50%, -50%)",
             fontSize: "20px",
             fontWeight: "bold",
-            color: "#FFFFFFCC", 
-          
+            color: "#FFFFFFCC",
           }}
         >
           65%
         </div>
       </div>
 
-      {/* Legend Section */}
       <div
         style={{
           display: "flex",
           justifyContent: "space-evenly",
           width: "100%",
           marginTop: "10px",
-          height: "25%"
+          height: "25%",
         }}
       >
-        {/* Remaining Legend */}
         <div style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "14px", fontWeight: "400" }}>
           <span
             style={{
@@ -131,14 +113,13 @@ const BatteryStatus = () => {
           ></span>
           <span>Remaining</span>
         </div>
-        {/* Consumed Legend */}
         <div style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "14px", fontWeight: "400" }}>
           <span
             style={{
               width: "10px",
               height: "10px",
               backgroundColor: "#FFBE0A",
-              borderRadius: "50%"
+              borderRadius: "50%",
             }}
           ></span>
           <span>Consumed</span>
