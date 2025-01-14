@@ -10,14 +10,13 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('isAuthenticated'); // Clear authentication flag
-    navigate('/'); // Redirect to the login page
+    localStorage.removeItem('isAuthenticated');
+    navigate('/');
   };
 
   return (
     <div className="background-class page-size">
       <div className="container-fluid">
-        {/* Header */}
         <div className="row header">
           <div className="col p-0"></div>
           <div className="col p-0 d-flex justify-content-center align-items-center">
@@ -30,9 +29,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Content */}
         <div className="row content">
-          {/* Sidebar and Left Charts */}
           <div className="col-4 p-0 d-flex">
             <div className="side-nav" style={{ width: "15%" }}>
               <div
@@ -73,18 +70,15 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Center Chart */}
           <div className="col-3 mt-3 pl-0 pt-5 d-flex justify-content-center">
             <BatteryStatus style={{ height: "100% !important" }} />
           </div>
 
-          {/* Right Chart */}
           <div className="col-5 mt-3 pt-5">
             <Margin />
           </div>
         </div>
 
-        {/* Footer */}
         <div className="row footer">
           <div className="col p-0"></div>
           <div className="col p-0 d-flex justify-content-center">
