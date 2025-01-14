@@ -14,5 +14,10 @@ https://dashboard-nishanth.web.app
 
 ## Login Page 
 ![image](https://github.com/user-attachments/assets/a7bb6cc1-129f-46be-90f9-b7a4242713f3)
+## Otp Verification page 
+![image](https://github.com/user-attachments/assets/f900adbd-c138-4555-b495-fe93c170a16c)
+## Dashboard Page 
+![image](https://github.com/user-attachments/assets/405b3e13-d730-4087-8496-0b28c15b8dc9)
+
 
 
