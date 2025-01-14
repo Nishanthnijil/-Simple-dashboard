@@ -7,14 +7,13 @@ ChartJS.register(LineElement, PointElement, Tooltip, Legend, Title, CategoryScal
 const OrdersChart = () => {
   const [timeRange, setTimeRange] = useState("days");
 
-  // Data for different time ranges (7 days, 7 weeks, 7 months)
   const data = {
     days: {
       labels: Array.from({ length: 7 }, (_, index) => `Day ${index + 1}`),
       datasets: [
         {
           label: "Orders",
-          data: [50, 55, 45, 60, 70, 65, 75], // Data for 7 days
+          data: [50, 55, 45, 60, 70, 65, 75],
           borderColor: "#28a745",
           backgroundColor: "rgba(40, 167, 69, 0.2)",
           fill: true,
@@ -27,7 +26,7 @@ const OrdersChart = () => {
       datasets: [
         {
           label: "Orders",
-          data: [300, 320, 310, 350, 380, 400, 420], // Data for 7 weeks
+          data: [300, 320, 310, 350, 380, 400, 420],
           borderColor: "#28a745",
           backgroundColor: "rgba(40, 167, 69, 0.2)",
           fill: true,
@@ -40,7 +39,7 @@ const OrdersChart = () => {
       datasets: [
         {
           label: "Orders",
-          data: [1200, 1250, 1300, 1350, 1400, 1450, 1500], // Data for 7 months
+          data: [1200, 1250, 1300, 1350, 1400, 1450, 1500],
           borderColor: "#28a745",
           backgroundColor: "rgba(40, 167, 69, 0.2)",
           fill: true,
@@ -62,26 +61,26 @@ const OrdersChart = () => {
         },
       },
       legend: {
-        display: false, // Hide the default legend
+        display: false,
       },
       title: {
-        display: false, // Hide the title
+        display: false,
       },
     },
     elements: {
       point: {
-        radius: 0, // Hide data points
+        radius: 0,
       },
     },
     scales: {
       x: {
         ticks: {
-          display: false, // Hide x-axis labels
+          display: false,
         },
       },
       y: {
         ticks: {
-          display: false, // Hide y-axis labels
+          display: false,
         },
       },
     },
@@ -94,8 +93,6 @@ const OrdersChart = () => {
   return (
     <div
       style={{
-        // width: "75%",
-        // height: "70%",
         width: "350px",
         height: "213px",
         padding: "50px",
@@ -109,7 +106,6 @@ const OrdersChart = () => {
         color: "#fff",
       }}
     >
-      {/* "Orders" label at top left */}
       <div
         style={{
           position: "absolute",
@@ -124,7 +120,6 @@ const OrdersChart = () => {
         Orders
       </div>
 
-      {/* Dropdown to select time range at top right */}
       <div
         style={{
           position: "absolute",
@@ -154,7 +149,6 @@ const OrdersChart = () => {
         </select>
       </div>
 
-      {/* Line Chart */}
       <div style={{ position: "relative", width: "100%", height: "200px", paddingTop: "15px" }}>
         <Line data={data[timeRange]} options={options} />
       </div>
