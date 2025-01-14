@@ -1,0 +1,121 @@
+.background-class{
+    background-image: url("../assets/Bg.png");
+    /* font-family: 'Mulish'; */
+}
+
+.page-size{
+    height: 100%;
+    width: 100vw;
+}
+
+.header{
+    height: 7vh;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.content{
+    height: 88vh !important;
+}
+
+.footer{
+    height: 5vh;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.page-title{
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.page-footer-text{
+    color: white;
+    font-size: 16px;
+}
+
+.login-content{
+    /* border-radius: 50px; */
+    .sign-in-content{
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        background-color: rgba(38, 52, 72, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        
+        .header-content{
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        input{
+            border: 0% !important;
+        }
+
+        .input-content{
+            outline: none;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            height: 54.09px;
+            background-color: rgba(0, 0, 0, 0.3);
+            font-size: 18px;
+            /* font-weight: 700; */
+            color: rgba(135, 135, 135, 1);
+            padding-left: 18px;
+        }
+
+        .input-content:-webkit-autofill{
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            color: rgba(135, 135, 135, 1) !important;
+            transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s, font-size 5000s ease-in-out 0s;
+            font-size: 18px;
+        }
+
+        .input-content::placeholder{
+            color: rgba(135, 135, 135, 1);
+            font-size: 20px;
+        }
+
+        .input-content:focus{
+            color: rgb(168, 166, 166);
+            font-size: 18px;
+            outline: none;
+        }
+
+        .custom-input:valid {
+            color: rgba(135, 135, 135, 1);
+            font-size: 18px;
+          }
+          
+          /* Styling when the input is empty (invalid) */
+          .custom-input:invalid {
+            color: rgba(135, 135, 135, 1);
+            font-size: 18px;
+          }
+
+          /* input:-internal-autofill-selected {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: rgba(135, 135, 135, 1);
+            font-size: 20px;
+          } */
+
+          .btn-class{
+            border: 2px rgba(140, 255, 0, 0.15);
+            border-radius: 20px;
+            background: linear-gradient(180deg, rgba(0, 255, 37, 0.5) 0%, #000801 99.97%, rgba(0, 4, 1, 0.992237) 99.98%, #000000 99.99%, rgba(54, 165, 70, 0.5) 100%, rgba(54, 165, 70, 0.5) 100%);
+            color: white;
+            width: 200px;
+            height: 45px;
+            font-size: 16px;
+          }
+    }
+
+    .subtitles{
+        background-color: rgba(38, 52, 72, 0.4);
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        color: white;
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: 1px;
+    }
+}

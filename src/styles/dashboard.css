@@ -1,0 +1,48 @@
+.background-class{
+    background-image: url("../assets/Bg.png");
+    background-size: cover;
+}
+
+.page-size{
+    height: 100%;
+    width: 100vw;
+}
+
+.header{
+    height: 7vh;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.content{
+    height: 88vh !important;
+}
+
+.footer{
+    height: 5vh;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.page-title{
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.page-footer-text{
+    color: white;
+    font-size: 16px;
+}
+
+.logout{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -1%;
+    padding-right: 25px;
+}
+
+.side-nav{
+    background-color: rgba(0, 0, 0, 0.4);
+
+
+}
