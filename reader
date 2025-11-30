@@ -80,3 +80,241 @@
 key WutIXWtuNaX5BhDuN
 
 template_j38a618
+
+
+import React, { useState, useCallback, useEffect } from 'react';
+import { Send, Loader2, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
+// NOTE: In a real Vite app, you must install the EmailJS package:
+// import emailjs from '@emailjs/browser'; 
+
+// --- MOCK for Canvas execution (DELETE THIS IN VITE PROJECT) ---
+const emailjs = {
+    init: (publicKey) => { console.log(`EmailJS initialized (Mock)`); },
+    send: (serviceID, templateID, templateParams, publicKey) => {
+        console.log("Simulating EmailJS send...");
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // Mock success
+                if (Math.random() > 0.1) { resolve({ status: 200, text: 'OK' }); } 
+                else { reject(new Error("EmailJS Mock Error: Service temporarily unavailable.")); }
+            }, 1500);
+        });
+    }
+};
+// ---------------------------------
+
+
+// !!! IMPORTANT: REPLACE THESE PLACEHOLDERS !!!
+const YOUR_SERVICE_ID = "YOUR_SERVICE_ID"; 
+const YOUR_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; 
+const YOUR_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; 
+
+// Define the primary brand color based on the latest template update
+const BRAND_COLOR_RGB = 'rgb(99, 38, 162)';
+
+/**
+ * A functional component for sending structured data via a single click
+ * using EmailJS for automated email sending.
+ */
+const App = () => {
+    // Data fields to be sent, matching the EmailJS template variables
+    const [formData, setFormData] = useState({
+        merchantId: 'M-12345',
+        blockerCode: 'GATEWAY_TIMEOUT_504',
+        blockName: 'Payment_Gateway_Fail',
+        blockDescription: 'User could not complete checkout process due to timeout. Please investigate immediately.',
+        transactionId: 'TXN-987654321',
+        recipientEmail: 'support@yourcompany.com', 
+        senderName: 'Vite Alert Portal',
+        Severity: 'CRITICAL',
+        affectedTransactions: '15',
+        timestamp: new Date().toISOString()
+    });
+    const [status, setStatus] = useState('idle'); // idle, sending, success, error
+    const [message, setMessage] = useState('');
+
+    // Initialize EmailJS once on mount
+    useEffect(() => {
+        try {
+            if (YOUR_PUBLIC_KEY && YOUR_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+                // In a real app: emailjs.init(YOUR_PUBLIC_KEY);
+                console.log("EmailJS initialized (mocked).");
+            }
+        } catch (e) {
+            console.error("Failed to initialize EmailJS:", e);
+        }
+    }, []);
+
+    const handleChange = useCallback((e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    }, []);
+
+    const sendEmail = async (e) => {
+        e.preventDefault();
+        
+        if (YOUR_SERVICE_ID === "YOUR_SERVICE_ID" || YOUR_TEMPLATE_ID === "YOUR_TEMPLATE_ID" || YOUR_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+            setMessage("ERROR: Please replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, and YOUR_PUBLIC_KEY with your actual EmailJS credentials.");
+            setStatus('error');
+            return;
+        }
+
+        setStatus('sending');
+        setMessage('');
+
+        // Prepare template parameters, updating the timestamp just before sending
+        const templateParams = {
+            ...formData,
+            timestamp: new Date().toLocaleString(), 
+        };
+
+        try {
+            const response = await emailjs.send(
+                YOUR_SERVICE_ID,
+                YOUR_TEMPLATE_ID,
+                templateParams,
+                YOUR_PUBLIC_KEY
+            );
+
+            if (response.status === 200) {
+                setStatus('success');
+                setMessage('Email successfully sent via EmailJS! Check your recipient inbox.');
+            } else {
+                setStatus('error');
+                setMessage(`EmailJS API Error: Status ${response.status}. Message: ${response.text}`);
+            }
+        } catch (error) {
+            setStatus('error');
+            setMessage(`Network or EmailJS Configuration Error: ${error.message}.`);
+            console.error('EmailJS send error:', error);
+        }
+    };
+
+    const StatusIcon = ({ status }) => {
+        switch (status) {
+            case 'sending':
+                return <Loader2 className="h-5 w-5 mr-2" style={{ color: BRAND_COLOR_RGB }} />;
+            case 'success':
+                return <CheckCircle className="h-5 w-5 text-green-500 mr-2" />;
+            case 'error':
+                return <XCircle className="h-5 w-5 text-red-500 mr-2" />;
+            default:
+                return null;
+        }
+    };
+
+    return (
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-inter">
+            <div className="w-full max-w-xl bg-white p-8 rounded-xl shadow-2xl border border-gray-100">
+                <h1 className="text-3xl font-extrabold text-gray-900 mb-2 text-center">
+                    EmailJS Alert Trigger (<span style={{ color: BRAND_COLOR_RGB }}>{BRAND_COLOR_RGB}</span>)
+                </h1>
+                <p className="text-sm text-gray-500 mb-6 text-center">
+                    Sends 9 key data points to match the custom template.
+                </p>
+
+                <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-200 text-sm text-yellow-800 mb-4 flex items-center">
+                    <AlertTriangle className="w-5 h-5 mr-2 text-yellow-600"/>
+                    **Setup Required:** Update the three `const` variables at the top of this file.
+                </div>
+
+                <form onSubmit={sendEmail} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <Input label="Recipient Email" name="recipientEmail" value={formData.recipientEmail} onChange={handleChange} placeholder="e.g., alert@example.com" required focusColor={BRAND_COLOR_RGB} />
+                        <Input label="Sender Name" name="senderName" value={formData.senderName} onChange={handleChange} placeholder="e.g., App Name" required focusColor={BRAND_COLOR_RGB} />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <Input label="Severity" name="Severity" value={formData.Severity} onChange={handleChange} placeholder="CRITICAL/HIGH/LOW" required focusColor={BRAND_COLOR_RGB} />
+                        <Input label="Blocker Code" name="blockerCode" value={formData.blockerCode} onChange={handleChange} placeholder="e.g., GATEWAY_504" required focusColor={BRAND_COLOR_RGB} />
+                        <Input label="Affected Txns" name="affectedTransactions" value={formData.affectedTransactions} onChange={handleChange} placeholder="e.g., 15" required focusColor={BRAND_COLOR_RGB} />
+                    </div>
+
+                    <Input label="Merchant ID" name="merchantId" value={formData.merchantId} onChange={handleChange} placeholder="e.g., M-12345" required focusColor={BRAND_COLOR_RGB} />
+                    <Input label="Block Name (Event)" name="blockName" value={formData.blockName} onChange={handleChange} placeholder="e.g., Payment_Failure_Alert" required focusColor={BRAND_COLOR_RGB} />
+                    <TextArea label="Blocker Description" name="blockDescription" value={formData.blockDescription} onChange={handleChange} placeholder="Detailed description of the event..." required focusColor={BRAND_COLOR_RGB} />
+                    
+                    <div> 
+                         <Input label="Transaction ID" name="transactionId" value={formData.transactionId} onChange={handleChange} placeholder="e.g., TXN-987654321" required focusColor={BRAND_COLOR_RGB} />
+                    </div>
+
+                    <button
+                        type="submit"
+                        disabled={status === 'sending'}
+                        className={`w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-md transition duration-300`}
+                        // Custom style for button color and hover effect
+                        style={{
+                            backgroundColor: status === 'sending' ? 'rgb(180, 150, 210)' : BRAND_COLOR_RGB,
+                            color: 'white',
+                            cursor: status === 'sending' ? 'not-allowed' : 'pointer'
+                        }}
+                    >
+                        <StatusIcon status={status} />
+                        {status === 'sending' ? 'Sending Email...' : 'Send Automated Alert Email via EmailJS'}
+                        {status === 'idle' && <Send className="w-5 h-5 ml-2" />}
+                    </button>
+                </form>
+
+                {message && (
+                    <div className={`mt-6 p-4 rounded-lg text-sm font-medium flex items-start 
+                        ${status === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                        <StatusIcon status={status} />
+                        {message}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+
+const Input = ({ label, name, value, onChange, placeholder, required = false, focusColor }) => (
+    <div>
+        <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">
+            {label} {required && <span className="text-red-500">*</span>}
+        </label>
+        <input
+            type="text"
+            name={name}
+            id={name}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            required={required}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 sm:text-sm"
+            style={{
+                '--tw-ring-color': focusColor,
+                '--tw-ring-offset-color': '#fff',
+                '--tw-ring-offset-width': '2px',
+                '--tw-ring-opacity': '1',
+                borderColor: focusColor, 
+            }}
+        />
+    </div>
+);
+
+const TextArea = ({ label, name, value, onChange, placeholder, rows = 3, required = false, focusColor }) => (
+    <div className="col-span-2">
+        <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1">
+            {label} {required && <span className="text-red-500">*</span>}
+        </label>
+        <textarea
+            name={name}
+            id={name}
+            rows={rows}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            required={required}
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 sm:text-sm resize-none"
+            style={{
+                '--tw-ring-color': focusColor,
+                '--tw-ring-offset-color': '#fff',
+                '--tw-ring-offset-width': '2px',
+                '--tw-ring-opacity': '1',
+                borderColor: focusColor, 
+            }}
+        ></textarea>
+    </div>
+);
+
+export default App;
