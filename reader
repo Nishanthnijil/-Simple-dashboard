@@ -1,11 +1,10 @@
-<!-- Email Container -->
 <div style="max-width: 600px; margin: 0 auto; padding: 0; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     
-    <!-- Header: Blue Theme and Subject Format -->
-    <div style="background-color: rgb(37, 150, 190); padding: 15px 25px; border-radius: 10px 10px 0 0; color: #ffffff;">
+    <!-- Header: Deep Purple Theme and Subject Format -->
+    <div style="background-color: rgb(99, 38, 162); padding: 15px 25px; border-radius: 10px 10px 0 0; color: #ffffff;">
         <!-- Matches requested header format: Merchant ID - Blocker Code -->
         <h1 style="margin: 0; font-size: 20px; font-weight: bold;">
-             CRITICAL ALERT | MERCHANT: {{merchantId}} | CODE: {{blockerCode}}
+            ALERT | MERCHANT: {{merchantId}} | CODE: {{blockerCode}}
         </h1>
     </div>
 
@@ -20,7 +19,7 @@
             
             <!-- Separator row to visually group data -->
             <tr style="background-color: #fcfcfc;">
-                <td colspan="2" style="padding: 5px 0; border-top: 2px solid rgb(37, 150, 190); font-size: 14px;"><strong>CORE ALERT DATA:</strong></td>
+                <td colspan="2" style="padding: 5px 0; border-top: 2px solid rgb(99, 38, 162); font-size: 14px;"><strong>CORE ALERT DATA:</strong></td>
             </tr>
 
             <tr>
@@ -29,7 +28,7 @@
             </tr>
             <tr>
                 <td style="padding: 8px 0; border-bottom: 1px solid #eee; width: 40%; background-color: #fcfcfc;"><strong>Blocker Code:</strong></td>
-                <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: rgb(37, 150, 190); font-weight: bold;">{{blockerCode}}</td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: rgb(99, 38, 162); font-weight: bold;">{{blockerCode}}</td>
             </tr>
             <tr>
                 <td style="padding: 8px 0; border-bottom: 1px solid #eee; width: 40%; background-color: #fcfcfc;"><strong>Event Name:</strong></td>
@@ -54,15 +53,15 @@
         </table>
 
         <!-- Description Block -->
-        <h3 style="color: rgb(37, 150, 190); margin-top: 20px; border-bottom: 1px solid #eee; padding-bottom: 5px;">Blocker Description:</h3>
-        <div style="background: #fcfcfc; padding: 15px; border-left: 3px solid rgb(37, 150, 190); border-radius: 4px; color: #444; margin-bottom: 20px;">
+        <h3 style="color: rgb(99, 38, 162); margin-top: 20px; border-bottom: 1px solid #eee; padding-bottom: 5px;">Blocker Description:</h3>
+        <div style="background: #fcfcfc; padding: 15px; border-left: 3px solid rgb(99, 38, 162); border-radius: 4px; color: #444; margin-bottom: 20px;">
             {{blockDescription}}
         </div>
         
         <!-- Call to Action (Themed Button) -->
         <div style="text-align: center; margin-top: 30px;">
             <a href="#" 
-               style="display: inline-block; padding: 12px 25px; background-color: rgb(37, 150, 190); color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
+               style="display: inline-block; padding: 12px 25px; background-color: rgb(99, 38, 162); color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
                 Resolve Alert Now
             </a>
         </div>
@@ -76,5 +75,3 @@
         </p>
     </div>
 </div>
-
-
