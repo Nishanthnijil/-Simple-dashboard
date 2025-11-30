@@ -76,12 +76,6 @@
     </div>
 </div>
 
- service id service_r0xfpcs
-key WutIXWtuNaX5BhDuN
-
-template_j38a618
-
-
 import React, { useState, useCallback, useEffect } from 'react';
 import { Send, Loader2, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
 // NOTE: In a real Vite app, you must install the EmailJS package:
@@ -105,9 +99,9 @@ const emailjs = {
 
 
 // !!! IMPORTANT: REPLACE THESE PLACEHOLDERS !!!
-const YOUR_SERVICE_ID = "YOUR_SERVICE_ID"; 
-const YOUR_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; 
-const YOUR_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; 
+const YOUR_SERVICE_ID = "service_r0xfpcs"; 
+const YOUR_TEMPLATE_ID = "template_j38a618"; 
+const YOUR_PUBLIC_KEY = "WutIXWtuNaX5BhDuN"; 
 
 // Define the primary brand color based on the latest template update
 const BRAND_COLOR_RGB = 'rgb(99, 38, 162)';
