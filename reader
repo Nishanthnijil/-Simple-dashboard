@@ -1,59 +1,80 @@
 <!-- Email Container -->
-<div style="max-width: 600px; margin: 0 auto; padding: 25px; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+<div style="max-width: 600px; margin: 0 auto; padding: 0; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     
-    <!-- Header -->
-    <div style="background-color: #6D28D9; padding: 15px 25px; border-radius: 8px 8px 0 0; color: #ffffff;">
-        <h1 style="margin: 0; font-size: 24px;">
-            Critical Alert: {{blockName}}
+    <!-- Header: Blue Theme and Subject Format -->
+    <div style="background-color: rgb(37, 150, 190); padding: 15px 25px; border-radius: 10px 10px 0 0; color: #ffffff;">
+        <!-- Matches requested header format: Merchant ID - Blocker Code -->
+        <h1 style="margin: 0; font-size: 20px; font-weight: bold;">
+             CRITICAL ALERT | MERCHANT: {{merchantId}} | CODE: {{blockerCode}}
         </h1>
     </div>
 
     <!-- Body Content -->
     <div style="padding: 25px;">
         <p style="font-size: 16px; margin-bottom: 20px;">
-            A new critical system alert has been triggered by the **{{senderName}}** application. Please review the details below immediately.
+            A new system alert with **{{Severity}}** severity has been triggered by the **{{senderName}}** application.
         </p>
 
         <!-- Key Details Table -->
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; border: 1px solid #eee;">
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px;">
+            
+            <!-- Separator row to visually group data -->
+            <tr style="background-color: #fcfcfc;">
+                <td colspan="2" style="padding: 5px 0; border-top: 2px solid rgb(37, 150, 190); font-size: 14px;"><strong>CORE ALERT DATA:</strong></td>
+            </tr>
+
             <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; width: 35%; background-color: #fcfcfc;"><strong>Event Name:</strong></td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #6D28D9; font-weight: bold;">{{blockName}}</td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; width: 40%; background-color: #fcfcfc;"><strong>Severity:</strong></td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #dc3545; font-weight: bold;">{{Severity}}</td>
             </tr>
             <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; background-color: #fcfcfc;"><strong>Timestamp:</strong></td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">{{timestamp}}</td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; width: 40%; background-color: #fcfcfc;"><strong>Blocker Code:</strong></td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: rgb(37, 150, 190); font-weight: bold;">{{blockerCode}}</td>
             </tr>
             <tr>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; background-color: #fcfcfc;"><strong>Merchant ID:</strong></td>
-                <td style="padding: 10px; border-bottom: 1px solid #eee; color: #333;">{{merchantId}}</td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; width: 40%; background-color: #fcfcfc;"><strong>Event Name:</strong></td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333;">{{blockName}}</td>
             </tr>
             <tr>
-                <td style="padding: 10px; background-color: #fcfcfc;"><strong>Transaction ID:</strong></td>
-                <td style="padding: 10px; color: #333;">{{transactionId}}</td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; width: 40%; background-color: #fcfcfc;"><strong>Merchant ID:</strong></td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333;">{{merchantId}}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; width: 40%; background-color: #fcfcfc;"><strong>Transaction ID:</strong></td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333;">{{transactionId}}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; width: 40%; background-color: #fcfcfc;"><strong>Affected Transactions:</strong></td>
+                <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333;">{{affectedTransactions}}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px 0; width: 40%; background-color: #fcfcfc;"><strong>Timestamp:</strong></td>
+                <td style="padding: 8px 0; color: #555;">{{timestamp}}</td>
             </tr>
         </table>
 
         <!-- Description Block -->
-        <h3 style="color: #6D28D9; margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 5px;">Description:</h3>
-        <div style="background: #fcfcfc; padding: 15px; border-left: 3px solid #6D28D9; border-radius: 4px; color: #444; margin-bottom: 20px;">
+        <h3 style="color: rgb(37, 150, 190); margin-top: 20px; border-bottom: 1px solid #eee; padding-bottom: 5px;">Blocker Description:</h3>
+        <div style="background: #fcfcfc; padding: 15px; border-left: 3px solid rgb(37, 150, 190); border-radius: 4px; color: #444; margin-bottom: 20px;">
             {{blockDescription}}
         </div>
         
         <!-- Call to Action (Themed Button) -->
         <div style="text-align: center; margin-top: 30px;">
             <a href="#" 
-               style="display: inline-block; padding: 12px 25px; background-color: #6D28D9; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
-                View Dashboard
+               style="display: inline-block; padding: 12px 25px; background-color: rgb(37, 150, 190); color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
+                Resolve Alert Now
             </a>
         </div>
 
     </div>
 
     <!-- Footer -->
-    <div style="text-align: center; padding: 15px 25px; border-top: 1px solid #eee; margin-top: 20px;">
+    <div style="text-align: center; padding: 15px 25px; border-top: 1px solid #eee;">
         <p style="margin: 0; font-size: 12px; color: #999;">
-            This alert was automatically generated by the {{senderName}} system. Do not reply to this email.
+            This alert was automatically generated by the {{senderName}} system.
         </p>
     </div>
 </div>
+
+
