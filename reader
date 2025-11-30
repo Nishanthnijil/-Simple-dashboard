@@ -312,3 +312,5 @@ const TextArea = ({ label, name, value, onChange, placeholder, rows = 3, require
 );
 
 export default App;
+
+npm install @emailjs/browser
