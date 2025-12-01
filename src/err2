@@ -1,0 +1,98 @@
+On the list of Blocker Name available on the drop down only add this remove others. 
+
+
+Error code
+Description
+Reason.
+Whats Next
+BL_077
+EDD1 block for SME mxs
+Edd1 digital Verification pending.
+Reach the Sales Spoc to get verified. Provide the following to the spoc as listed 1.Photos of Authorized Signatory 2. PAN card 3. Business board 4. Office setup 5.Inventory (if applicable), 6. Purchase Invoice
+BL_088
+EDD2 Block for SME merchants
+Edd2 Physical Verification pending. This happends when you cross ₹25L Quarterly OR ₹1Cr Lifetime TPV
+
+Reach the Sales Spoc to get verified. Provide the following to the spoc as listed Rental/Lease Agreement
+GST Filings (Latest Quarter)
+Current Account Statement (Last 3 Months)
+Inventory/Warehouse Photos
+Purchase Invoices
+Business Location Photos
+BF_028
+Mx with very low Success rate
+The transaction is blocked due to Low SR.
+Reach the Sales Spoc to get this checked. Send them with few above mentioned transaction ids
+BF_104
+Paylink customer phone number mismatch
+The paylink that used for this transaction.
+Please check the paylink that you are using to generate. If you want any support on this please resport this issue.
+BF_108
+High reported fraud or Chargeback for the Mx
+Too many chergeback issued hence marked as fraud
+Please report this issue by clicking the below button
+
+ Show only the description on the add transaction page if any related blocker added,
+
+Also in merchant using flow once they have added any transaction it should do the following action.
+
+
+
+On the Critical Alerts page it should show,
+Transaction id:
+Error:
+Description:
+Reason:
+Whats next:
+
+
+
+Also, if 
+
+1)Blocker Name =’’BL_077’’
+Enable the cHECK box : name : "Do You want to report this to Spoc"
+And if the give true on this checkbox make the receiver email as “nishanthchandru978@gmail.com” and send the email by clicking the Submit report button.
+
+2)Blocker Name =’’BL_088’’
+Enable the cHECK box : name : "Do You want to report this to Spoc"
+And if the give true on this checkbox make the receiver email as “nishanthnishatzz@gmail.com” and send the email by clicking the Submit report button.
+
+
+3)Blocker Name =BF_028’
+Enable the cHECK box : name : "Do You want to report this to Spoc"
+And if the give true on this checkbox make the receiver email as “bharathbaddy23@gmail.com” and send the email by clicking the Submit report button.
+
+
+4)Blocker Name =BF_104
+Enable the cHECK box : name : "Do You want to report this to Spoc"
+And if the give true on this checkbox make the receiver email as “nishanthchandru978@gmail.com” and send the email by clicking the Submit report button.
+
+
+5)Blocker Name =BF_108
+Enable the cHECK box : name : "Do You want to report this to Spoc"
+And if the give true on this checkbox make the receiver email as “nishanthchandru978@gmail.com” and send the email by clicking the Submit report button.
+
+
+Also once submit button is hitted send a mail to the respective mail ids as shared above 
+
+These are my email js credentials 
+
+const YOUR_SERVICE_ID = "service_r0xfpcs"; 
+const YOUR_TEMPLATE_ID = "template_j38a618"; 
+const YOUR_PUBLIC_KEY = "WutIXWtuNaX5BhDuN"; 
+
+
+On that mail you need to send 
+
+Send the below details thse are the variables sent to email js, dont change them, if any details not present , mention them as null. Also if the email is sent give me a successful notifi
+merchantId:         
+        blockerCode:         
+        blockName:         
+        blockDescription:         
+        transactionId: 'TXN-987654321',
+        recipientEmail:
+        senderName: {{ merchantId}}
+        Severity: 
+        affectedTransactions: 
+        timestamp: new Date().toISOString()
+
